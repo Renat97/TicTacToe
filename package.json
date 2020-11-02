@@ -1,0 +1,20 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "1st Challenge",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Renat97/TicTacToe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Renat97/TicTacToe/issues"
+  },
+  "homepage": "https://github.com/Renat97/TicTacToe#readme"
+}
