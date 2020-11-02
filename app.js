@@ -1,8 +1,9 @@
-// Model game Logic
+// MODEL LOGIC
 var gamePlaying = true;
 var click = false;
 var currentPlayerIsntOne = false;
 
+// VIEW LOGIC
 function reset() {
   for(var i = 1; i < 10; i++) {
     document.getElementById('square'+i).innerHTML = '';
@@ -117,9 +118,7 @@ function checkWinner() {
 
   }
 
-
-// view Game Logic and Controller
-
+// CONTROLLER LOGIC, UPDATES MODEL VARIABLES
 function updateBoard() {
 var id = this.id;
 if((!click) && !currentPlayerIsntOne && document.getElementById(id).innerHTML.trim() == "") {
