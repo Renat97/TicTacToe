@@ -4,15 +4,35 @@ var click = false;
 var currentPlayerIsntOne = false;
 
 // VIEW LOGIC
+
 function reset() {
   for(var i = 1; i < 10; i++) {
     document.getElementById('square'+i).innerHTML = '';
   }
-  document.getElementById('Player').innerHTML = "Player 1's Turn";
+  if(document.getElementById('PlayerStatus').innerHTML === "Player 1 Won!") {
+    document.getElementById('Player').innerHTML = "Player 1's Turn";
+    click = false;
+    currentPlayerIsntOne = false;
+  } else if(document.getElementById('PlayerStatus').innerHTML === "Player 2 Won!") {
+    document.getElementById('Player').innerHTML = "Player 2's Turn";
+    click = true;
+    currentPlayerIsntOne = true;
+  }
   document.getElementById('PlayerStatus').innerHTML = "";
-  click = false;
-  currentPlayerIsntOne = false;
+}
 
+function checkTie() {
+  var count = 0;
+  for(let i = 1; i < 10; i++) {
+    if(document.getElementById('square'+ i).innerHTML.length > 0) {
+      count++;
+    }
+  }
+  if(count === 9) {
+    reset();
+  } else {
+    return;
+  }
 }
 
 document.getElementById('reset').onclick = function() {
@@ -114,8 +134,9 @@ function checkWinner() {
     alert("please press the reset button");
     gamePlaying = true;
     return;
+  } else {
+    checkTie();
   }
-
   }
 
 // CONTROLLER LOGIC, UPDATES MODEL VARIABLES
