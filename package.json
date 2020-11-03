@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Renat97/TicTacToe/issues"
   },
-  "homepage": "https://github.com/Renat97/TicTacToe#readme"
+  "homepage": "https://github.com/Renat97/TicTacToe#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

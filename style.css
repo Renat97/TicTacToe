@@ -1,5 +1,6 @@
-#to1 {
+#t01 {
   background-color: #f1f1c1;
+  transform: rotate(0);
 }
 td {
   border: 1px solid black;
@@ -7,5 +8,24 @@ td {
 }
 
 body {
+  margin: 0;
+}
 
+#player1{
+  text-align: left;
+  float: left;
+  position: relative;
+  left: 100px;
+}
+#player2{
+  text-align: right;
+  float: right;
+  position: relative;
+  right: 100px;
+  top:5px;
+}
+#reset {
+  text-align: center;
+  position: relative;
+  left: 80px;
 }

@@ -3,7 +3,21 @@ var gamePlaying = true;
 var click = false;
 var currentPlayerIsntOne = false;
 
+var player1 = {
+  "winCount": 0
+};
+
+var player2 = {
+  "winCount": 0
+};
+
+var name1 = prompt("What is your name Player1 ?");
+var name2 = prompt("What is your name Player2 ?");
+
 // VIEW LOGIC
+
+document.getElementById('Player1').innerHTML += ' ' + name1;
+document.getElementById('Player2').innerHTML += ' ' + name2;
 
 function reset() {
   for(var i = 1; i < 10; i++) {
@@ -11,10 +25,16 @@ function reset() {
   }
   if(document.getElementById('PlayerStatus').innerHTML === "Player 1 Won!") {
     document.getElementById('Player').innerHTML = "Player 1's Turn";
+    player1['winCount']++;
+    document.getElementById('Player1').innerHTML = player1['winCount'];
+    document.getElementById('Player1').innerHTML += ' ' + name1;
     click = false;
     currentPlayerIsntOne = false;
   } else if(document.getElementById('PlayerStatus').innerHTML === "Player 2 Won!") {
+    player2['winCount']++;
+    document.getElementById('Player2').innerHTML = player2['winCount'];
     document.getElementById('Player').innerHTML = "Player 2's Turn";
+    document.getElementById('player2').innerHTML += ' ' + name2;
     click = true;
     currentPlayerIsntOne = true;
   }
@@ -29,10 +49,15 @@ function checkTie() {
     }
   }
   if(count === 9) {
+    alert('There has been a tie!')
     reset();
   } else {
     return;
   }
+}
+
+function rotateBoard() {
+  document.getElementById('t01').setAttribute('transform', 'rotate(90)');
 }
 
 document.getElementById('reset').onclick = function() {
@@ -146,6 +171,7 @@ if((!click) && !currentPlayerIsntOne && document.getElementById(id).innerHTML.tr
 document.getElementById(id).innerText = "X";
 document.getElementById(id).innerText.trim();
 document.getElementById('Player').innerHTML = "Player 2's Turn";
+rotateBoard();
 click = true;
 currentPlayerIsntOne = true;
 }
